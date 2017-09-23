@@ -1,0 +1,132 @@
+<!--
+  Generated template for the TutorPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>Instructor</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+ 
+ <ion-item>
+    <ion-avatar item-start>
+      <img src="assets/img/muz.png">
+    </ion-avatar>
+    <h2>Assosiate Prof. Wan Muzaffar</h2>
+    <h3>Course: KOD2001 Ionic Framework</h3>
+    <p>Lastest online: November 5, 1955</p>
+  </ion-item>
+
+<!--segment-->
+
+ <div padding>
+  <ion-segment [(ngModel)]="course">
+    <ion-segment-button value="forum">
+      Forum
+    </ion-segment-button>
+    <ion-segment-button value="file">
+      File
+    </ion-segment-button>
+     <ion-segment-button value="classmate">
+      Classmates
+    </ion-segment-button>
+  </ion-segment>
+</div>
+
+<!--segment-->
+
+<!--list-->
+
+<div [ngSwitch]="course">
+	<ion-list *ngSwitchCase="'forum'">
+		<ion-item>
+			<ion-avatar item-start>
+				<img src="assets/img/woody.png">
+			</ion-avatar>
+			<h2>Franklin</h2>
+			<h3>Don't Know What To Do!</h3>
+			<p>I've had a pretty messed up day. If we just...</p>
+		</ion-item>
+
+		<ion-item>
+			<ion-avatar item-start>
+				<img src="assets/img/muz.png">
+			</ion-avatar>
+			<h2>Prof. Wan Muz</h2>
+			<h3> WOD Day 5 </h3>
+			<p>I will offer the best student a pizza ! </p>
+		</ion-item>
+
+	</ion-list>
+
+
+	<ion-list *ngSwitchCase="'file'">
+		<ion-item>
+			<ion-thumbnail item-start>
+
+			</ion-thumbnail>
+			<h2>Rubric for Project</h2>
+		</ion-item>
+	</ion-list>
+
+	<ion-list *ngSwitchCase="'classmate'">
+		<ion-item-sliding>
+			<ion-item>
+				<ion-avatar item-start>
+				<img src="assets/img/barrett.jpg">
+				</ion-avatar>
+				<h2>Nicki</h2>
+			</ion-item>
+			<ion-item-options side="right">
+				<button ion-button color="primary">
+					<ion-icon name="text"></ion-icon>
+					Text
+				</button>
+				<button ion-button color="secondary">
+					<ion-icon name="call"></ion-icon>
+					Call
+				</button>
+				<button ion-button color="primary">
+					<ion-icon name="mail"></ion-icon>
+					Email
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+
+		<ion-item-sliding>
+			<ion-item>
+				<ion-avatar item-start>
+				<img src="assets/img/venkman.jpg">
+				</ion-avatar>
+				<h2>Faizah</h2>
+			</ion-item>
+			<ion-item-options side="right">
+				<button ion-button color="primary">
+					<ion-icon name="text"></ion-icon>
+					Text
+				</button>
+				<button ion-button color="secondary">
+					<ion-icon name="call"></ion-icon>
+					Call
+				</button>
+				<button ion-button color="primary">
+					<ion-icon name="mail"></ion-icon>
+					Email
+				</button>
+			</ion-item-options>
+		</ion-item-sliding>
+
+	</ion-list>
+
+ 
+ </div>
+
+<button ion-button full colour="default" (click)=itemTapped()> My Attendance</button>
+</ion-content>
