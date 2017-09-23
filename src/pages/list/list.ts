@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { TutorPage } from '../tutor/tutor'; 
-
+import { HttpProvider } from '../../providers/http/http'
 /**
  * Generated class for the ListPage page.
  *
@@ -16,15 +16,23 @@ import { TutorPage } from '../tutor/tutor';
 })
 export class ListPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+user:any;
+
+  constructor(public navCtrl: NavController, public navParams: NavParams, public httpProvider : HttpProvider) {
+
   }
 
   ionViewDidLoad() {
-    console.log('ionViewDidLoad ListPage');
-  }
+    this.httpProvider.getUserApi().then((data) => {
+          this.user = data;
+          console.log(this.user)
+    }, (err) => {
+        console.log("not allowed");
+    });
+}
 
 itemTapped(){
-this.navCtrl.push(TutorPage)
+  this.navCtrl.push(TutorPage);
 }
 
 }

@@ -11,6 +11,9 @@ import { TutorPage } from '../pages/tutor/tutor';
 import { DashboardPage } from '../pages/dashboard/dashboard';
 import { LoginPage } from '../pages/login/login';
 import { HttpProvider } from '../providers/http/http';
+import { LoginProvider } from '../providers/login/login';
+import { HttpModule } from '@angular/http'; 
+import { IonicStorageModule } from '@ionic/storage'
 
 @NgModule({
   declarations: [
@@ -23,7 +26,9 @@ import { HttpProvider } from '../providers/http/http';
   ],
   imports: [
     BrowserModule,
+    HttpModule, 
     IonicModule.forRoot(MyApp), 
+    IonicStorageModule.forRoot()
     
   ],
   bootstrap: [IonicApp],
@@ -39,7 +44,8 @@ import { HttpProvider } from '../providers/http/http';
     StatusBar,
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
-    HttpProvider
+    HttpProvider,
+    LoginProvider
   ]
 })
 

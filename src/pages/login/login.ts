@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { IonicPage, NavController, NavParams, LoadingController} from 'ionic-angular';
 import { ListPage } from '../list/list';
+import { LoginProvider } from '../../providers/login/login'
 
 /**
  * Generated class for the LoginPage page.
@@ -16,15 +17,40 @@ import { ListPage } from '../list/list';
 })
 export class LoginPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
+email: any; 
+password: any; 
+loading: any;
 
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad LoginPage');
+  constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider : LoginProvider, public loadingController : LoadingController) {
   }
+ itemTapped(){
 
-itemTapped(){
-this.navCtrl.push(ListPage)
+ this.showLoader();
+ 
+        let credentials = {
+            email: this.email,
+            password: this.password
+        };
+ 
+        this.loginProvider.login(credentials).then((result) => {
+            this.loading.dismiss();
+            console.log(result);
+            this.navCtrl.setRoot(ListPage);
+        }, (err) => {
+            this.loading.dismiss();
+            console.log(err);
+        });
+
 }
+showLoader(){
+ 
+        this.loading = this.loadingController.create({
+            content: 'Authenticating...'
+        });
+ 
+        this.loading.present();
+ 
+    }
+
 
 }
