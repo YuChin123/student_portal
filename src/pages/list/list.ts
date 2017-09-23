@@ -16,21 +16,20 @@ import { HttpProvider } from '../../providers/http/http'
 })
 export class ListPage {
 
-user:any;
+course:any;
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpProvider : HttpProvider) {
 
   }
-
+ 
   ionViewDidLoad() {
-    this.httpProvider.getUserApi().then((data) => {
-          this.user = data;
-          console.log(this.user)
+      this.httpProvider.getUserApi().then((data) => {
+          this.course = data;
+          console.log(this.course)
     }, (err) => {
         console.log("not allowed");
     });
-}
-
+  }
 itemTapped(){
   this.navCtrl.push(TutorPage);
 }

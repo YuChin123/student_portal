@@ -22,7 +22,7 @@ getUserApi(){
       let headers = new Headers();
       headers.append('Authorization','Bearer '  + this.loginProvider.token);
  
-      this.http.get('https://yc-project.herokuapp.com/login', {headers: headers})
+      this.http.get('https://yc-project.herokuapp.com/api/courses', {headers: headers})
         .map(res => res.json())
         .subscribe(data => {
           resolve(data);
@@ -32,6 +32,7 @@ getUserApi(){
     });
  
 }
+
 
 
 }

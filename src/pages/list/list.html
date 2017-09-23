@@ -15,23 +15,14 @@
 
 <ion-content padding>
 
-  <ion-list>
-  <ion-list-header>
-    TJ - Departmental Core
-  </ion-list-header>
-  <ion-item (click)=itemTapped() >CIA2008	Company Law</ion-item>
-  <ion-item (click)=itemTapped() >CIA3001	Corporate Accounting</ion-item>
-  <ion-item (click)=itemTapped() >CIA3005	Advanced Auditing</ion-item>
-  <ion-item (click)=itemTapped() >CIC2001	Basic Corporate Finance</ion-item>
+  <ion-list *ngFor = "let course of course" (click)=itemTapped(course)>
+  <!--<ion-list-header>
+    {{course.type}}
+  </ion-list-header>-->
+  <ion-item> {{course.code}}{{course.name}}</ion-item>
 
-</ion-list> 
 
-<ion-list>
-  <ion-list-header>
-    EF - Faculty Electives
-  </ion-list-header>
-  <ion-item (click)=itemTapped() >CIA3008	Information Technology (IT) Auditing</ion-item>
-  <ion-item (click)=itemTapped() >CIX2004	Business Application Development</ion-item>
+
 </ion-list> 
 
 </ion-content>
