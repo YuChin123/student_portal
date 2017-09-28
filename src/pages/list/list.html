@@ -7,22 +7,61 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title>list</ion-title>
+    <ion-title>HomePage</ion-title>
   </ion-navbar>
 
 </ion-header>
 
+<ion-content class="cards-bg social-cards" (click)=itemTapped(course)>
 
-<ion-content padding>
+<ion-card >
+
+  <ion-item>
+    <ion-avatar item-start>
+      <img src="assets/img/marty-avatar.png">
+    </ion-avatar>
+    <h2>Marty McFly</h2>
+    <h3>CIX 2003 Computer Science</h3>
+    <p>November 5, 1955</p>
+  </ion-item>
+
+  <ion-card-content>
+    <p>Class starts at 8am, please be punctual. </p>
+  </ion-card-content>
+
+  <ion-row>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='thumbs-up'></ion-icon>
+        12 Likes
+      </button>
+    </ion-col>
+    <ion-col>
+      <button ion-button color="primary" clear small icon-start>
+        <ion-icon name='text'></ion-icon>
+        4 Comments
+      </button>
+    </ion-col>
+    <ion-col align-self-center text-center>
+      <ion-note>
+        11h ago
+      </ion-note>
+    </ion-col>
+  </ion-row>
+
+</ion-card>
+
+
+<!--<ion-content padding>
 
   <ion-list *ngFor = "let course of course" (click)=itemTapped(course)>
-  <!--<ion-list-header>
-    {{course.type}}
-  </ion-list-header>-->
+ 
   <ion-item> {{course.code}}{{course.name}}</ion-item>
 
 
 
 </ion-list> 
 
-</ion-content>
+</ion-content>-->
+
+

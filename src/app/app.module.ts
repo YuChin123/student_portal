@@ -13,7 +13,8 @@ import { LoginPage } from '../pages/login/login';
 import { HttpProvider } from '../providers/http/http';
 import { LoginProvider } from '../providers/login/login';
 import { HttpModule } from '@angular/http'; 
-import { IonicStorageModule } from '@ionic/storage'
+import { IonicStorageModule } from '@ionic/storage';
+import { Geofence } from '@ionic-native/geofence';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { IonicStorageModule } from '@ionic/storage'
     SplashScreen,
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpProvider,
-    LoginProvider
+    LoginProvider,
+    Geofence
   ]
 })
 
