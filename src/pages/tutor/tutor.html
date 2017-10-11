@@ -15,12 +15,12 @@
 
 <ion-content padding>
  
- <ion-item>
+ <ion-item >
     <ion-avatar item-start>
       <img src="assets/img/muz.png">
     </ion-avatar>
     <h2>Assosiate Prof. Wan Muzaffar</h2>
-    <h3>Course: KOD2001 Ionic Framework</h3>
+    <h3>Course: ADA 1006 Javascript</h3>
     <p>Lastest online: November 5, 1955</p>
   </ion-item>
 
@@ -45,28 +45,19 @@
 <!--list-->
 
 <div [ngSwitch]="course">
+<div *ngFor="let course of courses">
 	<ion-list *ngSwitchCase="'forum'">
-		<ion-item>
-			<ion-avatar item-start>
-				<img src="assets/img/woody.png">
-			</ion-avatar>
-			<h2>Franklin</h2>
-			<h3>Don't Know What To Do!</h3>
-			<p>I've had a pretty messed up day. If we just...</p>
-		</ion-item>
-
 		<ion-item>
 			<ion-avatar item-start>
 				<img src="assets/img/muz.png">
 			</ion-avatar>
-			<h2>Prof. Wan Muz</h2>
-			<h3> WOD Day 5 </h3>
-			<p>I will offer the best student a pizza ! </p>
+			<!--<h2>{{course.lecturers[0]}}</h2>-->
+			<p *ngIf="course.comment[0]"> {{course[0].comment[0].comment_text}}</p>
 		</ion-item>
 
 	</ion-list>
 
-
+</div>
 	<ion-list *ngSwitchCase="'file'">
 		<ion-item>
 			<ion-thumbnail item-start>
@@ -82,20 +73,19 @@
 				<ion-avatar item-start>
 				<img src="assets/img/barrett.jpg">
 				</ion-avatar>
-				<h2>Nicki</h2>
+				<h2>Nikki</h2>
 			</ion-item>
-			<ion-item-options side="right">
-				<button ion-button color="primary">
-					<ion-icon name="text"></ion-icon>
+			<ion-item-options side="right" >
+				<button ion-button color="primary" (click)="sendSMS()">
+					<ion-icon name="text" ></ion-icon>
 					Text
 				</button>
-				<button ion-button color="secondary">
+
+				<button ion-button color="secondary"  (click)="callIT('tel:+1-1800-555-5555')">
+				<a href="tel:+123#456-789">
+					</a>
 					<ion-icon name="call"></ion-icon>
 					Call
-				</button>
-				<button ion-button color="primary">
-					<ion-icon name="mail"></ion-icon>
-					Email
 				</button>
 			</ion-item-options>
 		</ion-item-sliding>
@@ -107,21 +97,21 @@
 				</ion-avatar>
 				<h2>Faizah</h2>
 			</ion-item>
-			<ion-item-options side="right">
-				<button ion-button color="primary">
-					<ion-icon name="text"></ion-icon>
+						<ion-item-options side="right" >
+				<button ion-button color="primary" (click)="sendSMS()">
+					<ion-icon name="text" ></ion-icon>
 					Text
 				</button>
-				<button ion-button color="secondary">
+
+				<button ion-button color="secondary"  (click)="callIT('tel:+1-1800-555-5555')">
+				<a href="tel:+123#456-789">
+					</a>
 					<ion-icon name="call"></ion-icon>
 					Call
 				</button>
-				<button ion-button color="primary">
-					<ion-icon name="mail"></ion-icon>
-					Email
-				</button>
 			</ion-item-options>
 		</ion-item-sliding>
+
 
 	</ion-list>
 

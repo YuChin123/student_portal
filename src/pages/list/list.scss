@@ -1,8 +1,9 @@
-page-list {
-
-}
-
-ion-title {
-	align: center;
-	background-color : #E6D72A;
+.ios, .md {
+	page-home {
+	 
+	 ion-card {
+	  background-color: #f6f6f6; 
+	  max-height: 150px;
+	  }
+	}
 }

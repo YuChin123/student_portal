@@ -15,17 +15,24 @@ import { HttpProvider } from '../../providers/http/http'
   templateUrl: 'list.html',
 })
 export class ListPage {
+ 
+  public tap: number = 0;
 
-course:any;
+courses:any;
+getNewsApi: any; 
 
   constructor(public navCtrl: NavController, public navParams: NavParams, public httpProvider : HttpProvider) {
 
   }
+
+    tapEvent(e) {
+    this.tap++
+  }
  
   ionViewDidLoad() {
-      this.httpProvider.getUserApi().then((data) => {
-          this.course = data;
-          console.log(this.course)
+      this.httpProvider.getNewsApi().then((data) => {
+          this.courses = data;
+          console.log(this.courses)
     }, (err) => {
         console.log("not allowed");
     });

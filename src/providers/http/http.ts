@@ -9,6 +9,7 @@ import 'rxjs/add/operator/map';
   See https://angular.io/guide/dependency-injection for more info on providers
   and Angular DI.
 */
+
 @Injectable()
 export class HttpProvider {
 
@@ -16,7 +17,7 @@ export class HttpProvider {
     console.log('Hello HttpProvider Provider');
   }
 
-getUserApi(){
+getNewsApi(){
  return new Promise((resolve, reject) => {
  
       let headers = new Headers();
@@ -32,6 +33,7 @@ getUserApi(){
     });
  
 }
+
 
 
 

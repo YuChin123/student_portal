@@ -12,44 +12,43 @@
 
 </ion-header>
 
-<ion-content class="cards-bg social-cards" (click)=itemTapped(course)>
+<div  *ngFor="let course of courses">
+<ion-content class="cards-bg social-cards" >
 
 <ion-card >
-
-  <ion-item>
+  <ion-item (click)=itemTapped(course)>
     <ion-avatar item-start>
-      <img src="assets/img/marty-avatar.png">
+      <img src="assets/img/muz.png">
     </ion-avatar>
-    <h2>Marty McFly</h2>
-    <h3>CIX 2003 Computer Science</h3>
-    <p>November 5, 1955</p>
+    <h2>{{course.lecturers[0]}}</h2>
+    <h3>{{course.code}} {{course.name}} </h3>
   </ion-item>
 
-  <ion-card-content>
-    <p>Class starts at 8am, please be punctual. </p>
+  <ion-card-content (click)=itemTapped(course.comment[0])>
+    <p *ngIf="course.comment[0]"> {{course.comment[0].comment_text}}</p>
   </ion-card-content>
 
   <ion-row>
-    <ion-col>
-      <button ion-button color="primary" clear small icon-start>
+    <ion-col (tap)="tapEvent($event)">
+   <ion-item>   <button ion-button color="primary" clear small icon-start>
         <ion-icon name='thumbs-up'></ion-icon>
-        12 Likes
+        Likes {{tap}} 
       </button>
+      </ion-item>
     </ion-col>
-    <ion-col>
-      <button ion-button color="primary" clear small icon-start>
-        <ion-icon name='text'></ion-icon>
-        4 Comments
-      </button>
-    </ion-col>
+   
     <ion-col align-self-center text-center>
       <ion-note>
-        11h ago
+        {{course.comment.createdAt}}
       </ion-note>
     </ion-col>
   </ion-row>
-
+</div>
 </ion-card>
+
+
+
+</ion-content>
 
 
 <!--<ion-content padding>

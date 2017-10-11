@@ -15,6 +15,7 @@ import { LoginProvider } from '../providers/login/login';
 import { HttpModule } from '@angular/http'; 
 import { IonicStorageModule } from '@ionic/storage';
 import { Geofence } from '@ionic-native/geofence';
+import { SMS } from '@ionic-native/sms';
 
 @NgModule({
   declarations: [
@@ -47,7 +48,8 @@ import { Geofence } from '@ionic-native/geofence';
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     HttpProvider,
     LoginProvider,
-    Geofence
+    Geofence,
+    SMS,
   ]
 })
 
