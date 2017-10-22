@@ -17,40 +17,12 @@ import { LoginProvider } from '../../providers/login/login'
 })
 export class LoginPage {
 
-email: any; 
-password: any; 
-loading: any;
-
   constructor(public navCtrl: NavController, public navParams: NavParams, public loginProvider : LoginProvider, public loadingController : LoadingController) {
   }
  itemTapped(){
 
- this.showLoader();
- 
-        let credentials = {
-            email: this.email,
-            password: this.password
-        };
- 
-        this.loginProvider.login(credentials).then((result) => {
-            this.loading.dismiss();
-            console.log(result);
-            this.navCtrl.setRoot(ListPage);
-        }, (err) => {
-            this.loading.dismiss();
-            console.log(err);
-        });
+}
 
 }
-showLoader(){
- 
-        this.loading = this.loadingController.create({
-            content: 'Authenticating...'
-        });
- 
-        this.loading.present();
- 
-    }
 
 
-}
